@@ -262,7 +262,7 @@ header p {
 /* Адаптація для телефонів */
 @media screen and (max-width: 480px) {
     .grid-img {
-        height: 110px; /* Трохи менші фото на телефоні */
+        height: 300px; /* Трохи менші фото на телефоні */
     }
 }
 
