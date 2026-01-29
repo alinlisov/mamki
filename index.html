@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>З Днем Народження, Матусю! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="heart-bg" id="heart-bg"></div>
+    <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div class="music-btn" onclick="toggleMusic()">
+    🎵
+</div>
+
+    <header>
+    <div class="hero-img-container">
+        <img src="img/mom.jpg" alt="Мама" class="hero-img">
+    </div>
+
+    <h1>З Днем Народження, Люба Матусю! ❤️</h1>
+    
+
+    <p style="color: white; margin-bottom: 10px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+        Ти даруєш нам тепло вже:
+    </p>
+
+    <div class="timer-wrapper">
+        <div class="time-box">
+            <span class="time-val" id="t-years">0</span>
+            <span class="time-label">Років</span>
+        </div>
+        <div class="time-box">
+            <span class="time-val" id="t-months">0</span>
+            <span class="time-label">Місяців</span>
+        </div>
+        <div class="time-box">
+            <span class="time-val" id="t-days">0</span>
+            <span class="time-label">Днів</span>
+        </div>
+         <div class="time-box" style="display: none;">
+    <span class="time-val" id="t-hours">0</span>
+    <span class="time-label">Годин</span>
+</div>
+    </div>
+
+    <div class="generator-container" style="margin-top: 30px;">
+        <button class="gen-btn" onclick="generateReason()">🌸 Компліментіки 🌸</button>
+        <div id="love-reason-display"></div>
+    </div>
+
+    <div class="scroll-down" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">⬇</div>
+</header>
+
+    <div class="timeline">
+        
+        <div class="container left">
+            <div class="content" onclick="openModal('modal1')">
+               <h2 class="date-title">Твоя Мудрість</h2>
+                <p>Ти завжди знаєш, як краще</p>
+                            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content" onclick="openModal('modal2')">
+                <h2 class="date-title">Твоя Усмішка </h2>
+                <p>Вона освітлює все навколо</p>
+            </div>
+        </div>
+
+        <div class="container left">
+            <div class="content" onclick="openModal('modal3')">
+                <h2 class="date-title">Твоя Турбота </h2>
+                <p>Про найсмачніше у світі...</p>
+            </div>
+        </div>
+
+        <div class="container right">
+            <div class="content" onclick="openModal('modal4')">
+                <h2 class="date-title">Твоє Терпіння </h2>
+                <p>Ти — наш янгол-охоронець</p>
+            </div>
+        </div>
+
+<div class="container left">
+            <div class="content" onclick="openModal('modal5')">
+                <h2 class="date-title">Твоя Краса</h2>
+                <p>Час над тобою не владний</p>
+            </div>
+        </div>
+
+<div class="container right">
+            <div class="content" onclick="openModal('modal6')">
+                <h2 class="date-title">Найкраща Подруга </h2>
+                <p>З тобою можна говорити про все</p>
+            </div>
+        </div>
+
+        
+         <div class="container left">
+            <div class="content" onclick="openModal('modal7')">
+                <h2 class="date-title">Дякуємо тобі ❤️</h2>
+                <p>За те, що ти є</p>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <div id="modal1" class="modal" onclick="closeModal('modal1')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/photo.jpg" alt="Фото 1" class="grid-img">
+            <img src="img/opora.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Ти — наша опора</h2>
+            <p>Дякую за твої мудрі поради та підтримку. Я знаю, що до тебе завжди можна прийти з будь-якою проблемою, і ти зрозумієш.</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal" onclick="closeModal('modal2')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/ysmishka.jpg" alt="Фото 1" class="grid-img">
+            <img src="img/mom2.jpg" alt="Фото 2" class="grid-img">
+            </div>
+             
+            <h2>Твоя усмішка лікує</h2>
+            <p>Коли ти усміхаєшся, навіть похмурий день стає світлим. Бажаю тобі приводів для радості кожного дня!</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal" onclick="closeModal('modal3')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/turbota.jpg" alt="Фото 1" class="grid-img">
+            <img src="img/unnamed.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Найсмачніше — вдома</h2>
+            <p>Мамо, твій борщ, блінчики і різні страви — найсмачніші. Дякую, що завжди дбаєш, щоб ми були ситі та щасливі. Твої руки золоті!</p>
+        </div>
+                </div>
+
+   <div id="modal4" class="modal" onclick="closeModal('modal4')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/IMG_0031_Original.JPG" alt="Фото 1" class="grid-img">
+            <img src="img/118597490_682219045706213_1540026444715917394_n.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Дякую за терпіння</h2>
+            <p>Я знаю, що з нами буває непросто. Дякую, що ти завжди знаходиш сили пробачати, розуміти і підтримувати, навіть коли ми робимо помилки. Ти свята!</p>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal" onclick="closeModal('modal5')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/IMG_0044_Original.JPG" alt="Фото 1" class="grid-img">
+            <img src="img/IMG_20210730_115121_368.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Ти — мій ідеал краси</h2>
+            <p>Сама мила, ніжна, гарнюня і просто неймовірна. Ти красива не тільки ззовні, а й душею. Люблю тебе!</p>
+        </div>
+    </div>
+   
+<div id="modal6" class="modal" onclick="closeModal('modal6')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/IMG_7142.PNG" alt="Фото 1" class="grid-img">
+            <img src="img/Алінка5.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Більше, ніж мама</h2>
+            <p>Ти не просто мама, ти — моя найкраща подруга. Дякую, що тобі можна довірити будь-який секрет, попліткувати про все на світі та порадитись. Ти найкраща!</p>
+        </div>
+    </div>
+
+                    <div id="modal7" class="modal" onclick="closeModal('modal7')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal('modal7')">&times;</span>
+            <div class="photo-grid">
+            <img src="img/unnamed (2).jpg" alt="Фото 1" class="grid-img">
+            <img src="img/IMG-ab98850438eaf156f8aace647880062f-V-01.jpg" alt="Фото 2" class="grid-img">
+            </div>
+            <h2>Люблю тебе безмежно!</h2>
+            <p>З Днем Народження, моя рідна! Будь здорова, щаслива та кохана. Ми тебе дуже любимо!</p>
+        </div>
+    </div>
+
+
+    <script>
+       // --- 1. СПИСОК КОМПЛІМЕНТІВ (Від "Ми") ---
+        const reasons = [
+            "Ти — серце нашої родини! ❤️",
+            "Ми обожнюємо твою усмішку.",
+            "Твої страви — найсмачніші у світі.",
+            "Дякуємо за твоє безмежне терпіння до нас.",
+            "Ти надихаєш нас ставати кращими людьми.",
+            "Ми завжди відчуваємо твою підтримку.",
+            "Твоя любов — це наш найсильніший оберіг.",
+            "Ти красива і зовні, і душею.",
+            "Ми пишаємося, що у нас така чудова мама.",
+            "Твої поради завжди влучні та мудрі.",
+            "Ти створюєш затишок, куди завжди хочеться повертатися.",
+            "Ми любимо тебе просто за те, що ти є.",
+            "Ти вмієш знайти вихід з будь-якої ситуації.",
+            "Твій сміх робить цей день яскравішим.",
+            "Дякуємо за всі ті безсонні ночі, що ти нам присвятила.",
+            "Ти — наш головний приклад жіночності та сили.",
+            "З тобою завжди цікаво говорити про все на світі.",
+            "Ти — наш особистий Янгол-Охоронець.",
+            "Ми цінуємо твою турботу.",
+            "Ти робиш цей світ добрішим.",
+            "Твої руки — найніжніші.",
+            "Дякуємо, що об'єднуєш нас усіх.",
+            "Ми завжди на твоєму боці!",
+            "Біля тебе завжди тепло і спокійно."
+        ];
+
+        function generateReason() {
+    const display = document.getElementById('love-reason-display');
+    display.innerText = reasons[Math.floor(Math.random() * reasons.length)];
+    
+    // Скидання анімації
+    display.style.animation = 'none';
+    display.offsetHeight; /* трюк для перезапуску */
+    
+   
+    display.style.animation = 'popIn 0.8s forwards'; 
+}
+
+        // --- 2. МУЗИКА ---
+        let isPlaying = false;
+
+function toggleMusic() {
+    const music = document.getElementById('bg-music');
+    const btn = document.querySelector('.music-btn');
+
+    // (Гучність 20%) ---
+    music.volume = 0.2; 
+    
+
+    if (!isPlaying) {
+        music.play();
+        isPlaying = true;
+        btn.classList.add('playing');
+    } else {
+        music.pause();
+        isPlaying = false;
+        btn.classList.remove('playing');
+    }
+}
+
+        // --- 3. ТАЙМЕР (ВІК МАМИ) ---
+        
+        const startDate = new Date(1977, 1, 10); 
+
+        function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        // Математика для розрахунку
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // 365.25 враховує високосні роки
+        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44)); // Середня довжина місяця
+        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        // Виводим на екран
+        document.getElementById('t-years').innerText = years;
+        document.getElementById('t-months').innerText = months;
+        document.getElementById('t-days').innerText = days;
+        document.getElementById('t-hours').innerText = hours;
+    }
+
+    // Запускаємо
+    setInterval(updateTimer, 1000); 
+    updateTimer();
+
+        // --- 4. ІНШЕ ---
+        function openModal(id){ const m = document.getElementById(id); m.style.display='flex'; setTimeout(()=>m.classList.add('show'),10); }
+        function closeModal(id){ const m = document.getElementById(id); m.classList.remove('show'); setTimeout(()=>m.style.display='none',300); }
+        
+        function createHeart() {
+            const h = document.createElement('div'); h.className='heart'; h.innerText='❤️';
+            h.style.left = Math.random()*100+'vw'; h.style.fontSize=Math.random()*20+10+'px';
+            h.style.animationDuration=Math.random()*3+2+'s';
+            document.getElementById('heart-bg').appendChild(h); setTimeout(()=>h.remove(),5000);
+        }
+        setInterval(createHeart, 400);
+       
+        
+    </script>
+</body>
+</html>
