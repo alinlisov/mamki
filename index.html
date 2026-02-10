@@ -261,27 +261,47 @@ function toggleMusic() {
     }
 }
 
-        // --- 3. ТАЙМЕР (ВІК МАМИ) ---
-        
-        const startDate = new Date(1977, 1, 10); 
+        const startDate = new Date(1977, 1, 10); // 10 лютого 1977
 
-        function updateTimer() {
-        const now = new Date();
-        const diff = now - startDate;
+function updateTimer() {
+    const now = new Date();
 
-        // Математика для розрахунку
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // 365.25 враховує високосні роки
-        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44)); // Середня довжина місяця
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    // 1. Спочатку рахуємо "брудну" різницю
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+    let hours = now.getHours() - startDate.getHours();
 
-        // Виводим на екран
-        document.getElementById('t-years').innerText = years;
-        document.getElementById('t-months').innerText = months;
-        document.getElementById('t-days').innerText = days;
-        document.getElementById('t-hours').innerText = hours;
+    // 2. Коригуємо час (якщо годин менше 0, позичаємо день)
+    if (hours < 0) {
+        hours += 24;
+        days--;
     }
 
+    // 3. Коригуємо дні)
+    if (days < 0) {
+        // Отримуємо останній день ПОПЕРЕДНЬОГО місяця, щоб знати скільки днів додати
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += previousMonth.getDate();
+        months--;
+    }
+
+    // 4. Коригуємо роки (якщо місяців менше 0, позичаємо рік)
+    if (months < 0) {
+        months += 12;
+        years--;
+    }
+
+    // Виводимо на екран
+    document.getElementById('t-years').innerText = years;
+    document.getElementById('t-months').innerText = months;
+    document.getElementById('t-days').innerText = days;
+    document.getElementById('t-hours').innerText = hours;
+}
+
+// Запускаємо таймер
+updateTimer();
+setInterval(updateTimer, 1000); // Оновлювати щосекунди (або щохвилини)
     // Запускаємо
     setInterval(updateTimer, 1000); 
     updateTimer();
